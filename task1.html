@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HNG TASK 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Slack Name-->
+    <h1 data-testid="slackUserName"> Themydee</h1>
+
+    <!--Slack Display Picture-->
+    <img src="temi.jpg" alt="Temi dp" data-testid="slackDisplayPicture">
+
+    <!--Current Day of the Week-->
+    <p data-testid="currentDayOfTheWeek">
+        <script>
+            const days = [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday" 
+            ];
+
+            const today = new Date().getDay();
+            document.write("Current Day:" + days[today]);
+
+        </script>
+    </p>
+
+    <!--Current UTC TIME-->
+    <p data-testid="currentUtcTime">
+        <script>
+            const currentUTC = new Date();
+            const utcHours = currentUTC.getUTCHours();
+            const utcMinutes = currentUTC.getUTCMinutes();
+            const utcSeconds = currentUTC.getUTCSeconds();
+            
+            console.log(`Current UTC Time: ${utcHours}: ${utcMinutes}: ${utcSeconds}`);
+        </script>
+    </p>
+
+    <!--Track-->
+    <p data-testid="myTrack">Frontend Developer Track</p>
+
+    <!--GithubUrl-->
+    <p data-testid="githubUrl">
+        <a href="https://github.com/Themydee/" target="_blank">My Github Repository</a>
+    </p>
+</body>
+</html>
