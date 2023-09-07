@@ -1,61 +1,91 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HNG TASK 1</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Welcome to the Internship</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .profile-image {
+            max-width: 200px;
+            border-radius: 50%;
+        }
+
+        .attribute-container {
+            margin: 20px 0;
+        }
+
+        .attribute {
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0077cc;
+        }
+    </style>
 </head>
 <body>
-    <!--Slack Name-->
-    <h1 data-testid="slackUserName"> Themydee</h1>
+    <h1>TASK 1!</h1>
 
-    <!--Slack Display Picture-->
-    <img src="https://ca.slack-edge.com/T05FFAA91JP-U05RBPVA9QU-5c7e6df4ce0e-48" alt="Themydee" data-testid="slackDisplayImage">
+    <div class="attribute-container">
+        <p class="attribute" data-testid="slackUserName">Slack Name:</p>
+        <p>Themydee</p>
+    </div>
 
-    <!--Current Day of the Week-->
-    <p data-testid="currentDayOfTheWeek">
-        <script>
-            const days = [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday" 
-            ];
+    <div class="attribute-container">
+        <p class="attribute" data-testid="slackDisplayImage">Slack Display Picture:</p>
+        <img src="https://ca.slack-edge.com/T05FFAA91JP-U05RBPVA9QU-5c7e6df4ce0e-48"  max-width="200px"alt="Your Slack Username" class="profile-image">
+    </div>
 
-            const today = new Date().getDay();
-            document.write("Current Day:" + days[today]);
+    <div class="attribute-container">
+        <p class="attribute" data-testid="currentDayOfTheWeek">Current Day of the Week:</p>
+        <p id="dayOfWeek"></p>
+    </div>
 
-        </script>
-    </p>
+    <div class="attribute-container">
+        <p class="attribute" data-testid="currentUTCTime">Current UTC Time:</p>
+        <p id="utcTime"></p>
+    </div>
 
-    <!--Current UTC TIME-->
-    <p data-testid="currentUTCTime">
-        <script>
-            function updateUTCTime() {
-                var currentTime = new Date();
-                var timeMilliseconds = currentTime.getTime();
-    
-                // Use data-testid to update the content
-                document.querySelector('[data-testid="currentUTCTime"]').innerHTML = timeMilliseconds + " milliseconds";
-            }
-    
-            updateUTCTime();
-    
-            // Call updateUTCTime every second to update the time
-            setInterval(updateUTCTime, 1000);
-        </script>
-    </p>
-    
-    
-    <!--Track-->
-    <p data-testid="myTrack">My track: Frontend</p>
+    <div class="attribute-container">
+        <p class="attribute" data-testid="myTrack">Track:</p>
+        <p>Frontend</p>
+    </div>
 
-    <!--GithubUrl-->
-    <p data-testid="githubURL">
-        <a href="https://github.com/Themydee/HNGX" target="_blank">My Github Repository</a>
-    </p>
+    <div class="attribute-container">
+        <p class="attribute" data-testid="githubURL">GitHub URL:</p>
+        <a href="https://github.com/Themydee/HNGX" target="_blank">Task 1 Repository</a>
+    </div>
+
+    <script>
+        // Get the current day of the week
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const currentDayIndex = new Date().getDay();
+        const currentDay = daysOfWeek[currentDayIndex];
+        document.getElementById("dayOfWeek").textContent = currentDay;
+
+        // Function to update UTC time in milliseconds
+        function updateUTCTime() {
+            const currentTimeMillis = new Date().getTime();
+            document.getElementById("utcTime").textContent = currentTimeMillis + " milliseconds";
+        }
+
+        // Call updateUTCTime initially to display the UTC time
+        updateUTCTime();
+
+        // Call updateUTCTime every second to update the time
+        setInterval(updateUTCTime, 1000);
+    </script>
 </body>
 </html>
