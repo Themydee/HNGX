@@ -34,12 +34,21 @@
     <!--Current UTC TIME-->
     <p data-testid="currentUtcTime">
         <script>
-            const currentUTC = new Date();
-            const utcHours = currentUTC.getUTCHours();
-            const utcMinutes = currentUTC.getUTCMinutes();
-            const utcSeconds = currentUTC.getUTCSeconds();
-            
-            console.log(`Current UTC Time: ${utcHours}: ${utcMinutes}: ${utcSeconds}`);
+            function updateUTCTime() {
+                var currentTime = new Date();
+                
+                var timeString = currentTime.getUTCHours().toString().padStart(2, '0') + ":" +
+                currentTime.getUTCMinutes().toString().padStart(2, '0') + ":" +
+                currentTime.getUTCSeconds().toString().padStart(2, '0');
+    
+                // Use data-testid to update the content
+                document.querySelector('[data-testid="currentUtcTime"]').innerHTML = timeString;
+            }
+    
+            updateUTCTime();
+    
+            // Call updateUTCTime every second to update the time
+            setInterval(updateUTCTime, 1000);
         </script>
     </p>
 
