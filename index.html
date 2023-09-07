@@ -32,7 +32,7 @@
     </p>
 
     <!--Current UTC TIME-->
-    <p data-testid="currentUtcTime">
+    <p data-testid="currentUTCTime">
         <script>
             function updateUTCTime() {
                 var currentTime = new Date();
@@ -42,7 +42,7 @@
                                  currentTime.getUTCSeconds().toString().padStart(2, '0');
     
                 // Use data-testid to update the content
-                document.querySelector('[data-testid="currentUtcTime"]').innerHTML = timeString;
+                document.querySelector('[data-testid="currentUTCTime"]').innerHTML = timeString;
             }
     
             updateUTCTime();
@@ -53,7 +53,7 @@
     </p>
     
     <!--Track-->
-    <p data-testid="myTrack">Frontend Developer Track</p>
+    <p data-testid="myTrack">My track: Frontend</p>
 
     <!--GithubUrl-->
     <p data-testid="githubURL">
