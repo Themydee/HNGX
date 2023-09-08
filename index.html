@@ -1,91 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HNG TASK 1</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-            padding: 20px;
-        }
+    <head>
+        <meta cherset="UTF-8">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>HNG TASK ONE</title>
+    </head>
+    <body>
+        <div data-testid="personal-data">
 
-        h1 {
-            color: #333;
-        }
-
-        .profile-image {
-            max-width: 200px;
-            border-radius: 50%;
-        }
-
-        .attribute-container {
-            margin: 20px 0;
-        }
-
-        .attribute {
-            font-weight: bold;
-        }
-
-        a {
-            text-decoration: none;
-            color: #0077cc;
-        }
-    </style>
-</head>
-<body>
-    <h1>TASK 1!</h1>
-
-    <div class="attribute-container">
-        <p class="attribute" data-testid="slackUserName">Slack Name:</p>
-        <p>Themydee</p>
-    </div>
-
-    <div class="attribute-container">
-        <p class="attribute" data-testid="slackDisplayImage">Slack Display Picture:</p>
-        <img src="https://ca.slack-edge.com/T05FFAA91JP-U05RBPVA9QU-5c7e6df4ce0e-48"  max-width="200px"alt="Your Slack Username" class="profile-image">
-    </div>
-
-    <div class="attribute-container">
-        <p class="attribute" data-testid="currentDayOfTheWeek">Current Day of the Week:</p>
-        <p id="dayOfWeek"></p>
-    </div>
-
-    <div class="attribute-container">
-        <p class="attribute" data-testid="currentUTCTime">Current UTC Time:</p>
-        <p id="utcTime"></p>
-    </div>
-
-    <div class="attribute-container">
-        <p class="attribute" data-testid="myTrack">Track:</p>
-        <p>Frontend</p>
-    </div>
-
-    <div class="attribute-container">
-        <p class="attribute" data-testid="githubURL">GitHub URL:</p>
-        <a href="https://github.com/Themydee/HNGX" target="_blank">Task 1 Repository</a>
-    </div>
-
-    <script>
-        // Get the current day of the week
-        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const currentDayIndex = new Date().getDay();
-        const currentDay = daysOfWeek[currentDayIndex];
-        document.getElementById("dayOfWeek").textContent = currentDay;
-
-        // Function to update UTC time in milliseconds
-        function updateUTCTime() {
-            const currentTimeMillis = new Date().getTime();
-            document.getElementById("utcTime").textContent = currentTimeMillis + " milliseconds";
-        }
-
-        // Call updateUTCTime initially to display the UTC time
-        updateUTCTime();
-
-        // Call updateUTCTime every second to update the time
-        setInterval(updateUTCTime, 1000);
-    </script>
-</body>
+            <h1 data-testid="slackUserName">Themydee</h1>
+            <img src="https://ca.slack-edge.com/T05FFAA91JP-U05RBPVA9QU-5c7e6df4ce0e-72" alt="Themydee" data-testid="slackDisplayImage" style="width: 300px; height: auto;">
+            <p data-testid="currentDayOfTheWeek">Thursday</p>
+            <p data-testid="currentUTCTime" id="utc-time">UTC+1 WAT 12:16pm</p>
+            <p data-testid="myTrack">Front-end</p>
+            <p data-testid="githubURL">
+                <a href="https://github.com/Themydee/HNGX/master/index.html" target="_blank">My GitHub Repository</a>
+            </p>
+        </div>
+        <script>
+            function updateTime() {
+                const utcTimeElement = document.getElementById("utc-time");
+                const now = new Date();
+                
+                const options = {
+                    timeZone: "Africa/Lagos", 
+                    hour12: true,
+                    hour: 'numeric', 
+                    minute: 'numeric',
+                    second: 'numeric',
+                    timeZoneName: 'short'
+                };
+        
+                const timeString = now.toLocaleString("en-US", options);
+                utcTimeElement.textContent = `UTC+1 WAT ${timeString}`;
+            }
+        
+            // Update the time every second (1000 milliseconds)
+            setInterval(updateTime, 1000);
+        
+            // Call updateTime() immediately to display the time on page load
+            updateTime();
+        </script>
+    </body>
 </html>
